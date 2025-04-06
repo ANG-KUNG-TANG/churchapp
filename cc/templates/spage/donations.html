@@ -1,0 +1,72 @@
+{% extends "spage/layout.html" %}
+
+{% block body %}
+<main class="container mt-5 pt-5">
+    <h1 class="text-center display-4 font-weight-bold">Support Our Church</h1>
+    <p class="text-center lead">Your generous donations help us continue our mission and serve our community.</p>
+    
+    <div class="row justify-content-center">
+        <!-- Bank Donation Section -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-lg border-0">
+                <div class="card-body">
+                    <h5 class="card-title text-primary font-weight-bold">Bank Donation</h5>
+                    <p class="card-text">You can donate directly to our bank account:</p>
+                    <ul class="list-unstyled">
+                        <li><strong>Bank Name:</strong> KBZ Bank</li>
+                        <li><strong>Account Name:</strong> Taunggyi City Church</li>
+                        <li><strong>Account Number:</strong> 123456789</li>
+                        <li><strong>SWIFT Code:</strong> ABCD1234</li>
+                    </ul>
+                    <p class="text-muted">Please include your name and purpose of donation in the transfer details.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cash Donation Section -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-lg border-0">
+                <div class="card-body">
+                    <h5 class="card-title text-success font-weight-bold">Cash Donation</h5>
+                    <p class="card-text">You can make a cash donation by visiting our church office:</p>
+                    <ul class="list-unstyled">
+                        <li><strong>Address:</strong> 123 Church Street, Taunggyi, Myanmar</li>
+                        <li><strong>Office Hours:</strong> Monday to Friday, 9:00 AM - 5:00 PM</li>
+                    </ul>
+                    <p class="text-muted">We appreciate your support!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Online Donation Section -->
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-body">
+                    <h5 class="card-title text-info font-weight-bold">Online Donation</h5>
+                    <p class="card-text">Fill out the form below to make an online donation:</p>
+                    <form action="{% url 'process_donation' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="name" class="font-weight-bold">Name</label>
+                            <input type="text" class="form-control rounded-pill" id="name" name="name" placeholder="Your Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="font-weight-bold">Email</label>
+                            <input type="email" class="form-control rounded-pill" id="email" name="email" placeholder="Your Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount" class="font-weight-bold">Donation Amount</label>
+                            <input type="number" class="form-control rounded-pill" id="amount" name="amount" placeholder="Enter Amount (MMK)" required>
+                        </div>
+                        <button type="submit" class="btn btn-info btn-block rounded-pill">Donate</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-pzjw8f+ua7Kw1TIqT6Qm6q6b6U6p5Q2l9j6V6e5wq6b6U6p5Q2l9j6V6e5wq6b6U6" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgQ3L6t8K8bHBO6pFQn5jv5z8e5wq6b6U6p5Q2l9j6V6e5wq6b6U6" crossorigin="anonymous"></script>
+{% endblock %}

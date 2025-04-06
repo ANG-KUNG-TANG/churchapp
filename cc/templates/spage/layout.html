@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taunggyi City Church</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'fpage/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'fpage/spage.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Additional styles for donation page */
+        body {
+            padding-top: 70px; /* Adjust for fixed navbar */
+        }
+        .navbar-brand i {
+            margin-right: 5px;
+        }
+        .form-control {
+            max-width: 300px;
+            display: inline-block;
+        }
+        footer {
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        /* Additional styles for dynamic design */
+        body.light-mode {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .theme-toggle {
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <i class="fas fa-church"></i> Taunggyi City Church
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'services' %}">
+                            <i class="fas fa-concierge-bell"></i> Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                            {% csrf_token %}
+                            <select name="language" class="form-control" onchange="this.form.submit()">
+                                <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+                                <option value="my" {% if LANGUAGE_CODE == 'my' %}selected{% endif %}>မြန်မာ</option>
+                            </select>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <span class="theme-toggle" onclick="toggleTheme()">
+                            <i class="fas fa-adjust"></i>
+                        </span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="container mt-4">
+        {% block body %}
+        {% endblock %}
+    </main>
+    
+    <footer class="bg-light text-center py-3 mt-5">
+        <p>&copy; 2025 Taunggyi City Church. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Theme toggle script
+        function toggleTheme() {
+            const body = document.body;
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+            }
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends "fpage/layout.html" %}
+
+{% block body %}
+<div class="container" style="max-width: 400px; margin: auto; padding: 40px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); border-radius: 20px; background-color: #ffffff; font-family: 'Roboto', sans-serif;">
+    <h2 style="text-align: center; color: #333; font-weight: 500; margin-bottom: 20px;">Create an Account</h2>
+    {% if error %}
+        <p style="color: #e74c3c; text-align: center; font-size: 14px; margin-bottom: 20px;">{{ error }}</p>
+    {% endif %}
+    <form id="signupForm" action="{% url 'signup' %}" method="post" style="margin-top: 10px;">
+        {% csrf_token %}
+        <div style="margin-bottom: 25px;">
+            <input type="text" id="signupUsername" name="username" placeholder="Username" required style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 10px; font-size: 15px; transition: border-color 0.3s;" value="{{ username|default:'' }}" onfocus="this.style.borderColor='#007bff'" onblur="this.style.borderColor='#ddd'">
+        </div>
+        <div style="margin-bottom: 25px;">
+            <input type="email" id="signupEmail" name="email" placeholder="Email" required style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 10px; font-size: 15px; transition: border-color 0.3s;" value="{{ email|default:'' }}" onfocus="this.style.borderColor='#007bff'" onblur="this.style.borderColor='#ddd'">
+        </div>
+        <div style="margin-bottom: 25px;">
+            <input type="password" id="signupPassword" name="password" placeholder="Password" required style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 10px; font-size: 15px; transition: border-color 0.3s;" onfocus="this.style.borderColor='#007bff'" onblur="this.style.borderColor='#ddd'">
+        </div>
+        <div>
+            <button type="submit" style="width: 100%; padding: 14px; background-color: #007bff; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 500; cursor: pointer; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#0056b3'" onmouseout="this.style.backgroundColor='#007bff'">
+                Sign Up
+            </button>
+        </div>
+    </form>
+    <p style="text-align: center; margin-top: 25px; font-size: 14px; color: #666;">Already have an account? <a href="{% url 'user_login' %}" style="color: #007bff; text-decoration: none; font-weight: 500;">Login</a></p>
+</div>
+{% endblock %}
+

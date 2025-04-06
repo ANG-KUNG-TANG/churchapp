@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taunggyi City Church.</title>
+    <link rel="stylesheet" href="{% static 'fpage/style.css' %}" />
+    <link rel="icon" type="image/x-icon" href="{% static 'fpage/cc.ico' %}">
+    <link rel="stylesheet" href="{% static 'fpage/spage.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <i class="fas fa-church"></i> TCC
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">
+                <i class="fas fa-home"></i> Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">
+                <i class="fas fa-info-circle"></i> About
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">
+                <i class="fas fa-envelope"></i> Contact
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="languageDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="fas fa-language"></i> Language
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-right"
+                aria-labelledby="languageDropdown"
+              >
+                <a class="dropdown-item" href="?lang=en">English</a>
+                <a class="dropdown-item" href="?lang=my">မြန်မာ</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container mt-5 pt-5">{% block body %} {% endblock %}</main>
+
+    <footer class="footer bg-dark text-white">
+      <div class="footer-content d-flex justify-content-between align-items-center">
+        <!-- All rights reserved text aligned to the left -->
+        <p class="small mb-0 text-left">&copy; 2025 Taunggyi City Church. All rights reserved.</p>
+
+        <!-- Links aligned to the right -->
+        <ul class="list-inline mb-0 text-right">
+          <li class="list-inline-item">
+            <a href="https://twitter.com/yourpage" class="text-white small" target="_blank">
+              <i class="fab fa-twitter"></i> Twitter
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.instagram.com/yourpage" class="text-white small" target="_blank">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.facebook.com/yourpage" class="text-white small" target="_blank">
+              <i class="fab fa-facebook"></i> Facebook
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="{% url 'policies' %}" class="text-white small">Privacy Policy</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="{% url 'terms' %}" class="text-white small">Terms & Conditions</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+{% extends "spage/layout.html" %}
+
+{% block body %}
+<div class="container" style="margin-top: 50px; font-family: 'Roboto', sans-serif;">
+    <h2 class="text-center" style="font-weight: bold; color: #2c3e50;">Program</h2>
+    
+    <div class="row">
+        <!-- Left Column: Schedule and Roster Sections -->
+        <div class="col-md-8" style="animation: fadeInLeft 2s;">
+            <!-- Schedule Section -->
+            <div class="schedule-section" style="margin-top: 30px;">
+                <h3 style="color: #34495e;">Schedule</h3>
+                <div class="schedule-section" style="margin-top: 20px;">
+                    <table class="table table-bordered table-hover table-responsive" style="width: 100%; text-align: center; border: 1px solid #ddd;">
+                        <thead class="thead-dark" style="background-color: #34495e; color: #ecf0f1;">
+                            <tr>
+                                <th>Title</th>
+                                <th>Pastor</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for schedule in Schedule %}
+                            <tr style="background-color: #f9f9f9;">
+                                <td>{{ schedule.event }}</td>
+                                <td>{{ schedule.pastor }}</td>
+                                <td>{{ schedule.date }}</td>
+                                <td>{{ schedule.time }}</td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="4" style="color: #e74c3c;">No schedules available at the moment.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Roster Section -->
+            <div class="roster-section" style="margin-top: 30px;">
+                <h3 style="color: #34495e;">Roster</h3>
+                <table class="table table-striped">
+                    {% for roster in Roster %}
+                    <div class="roster-item" style="margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
+                        <h4 style="color: #2c3e50;">{{ roster.title }}</h4>
+                        <p><strong>Date:</strong> {{ roster.date }}</p>
+                        <p><strong>Time:</strong> {{ roster.time }}</p>
+                        <p><strong>Description:</strong> {{ roster.description }}</p>
+                    </div>
+                    {% empty %}
+                    <p style="color: #e74c3c;">No rosters available at the moment.</p>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+        <!-- Right Column: Donation, Daily Bible Verses, and Announcement Sections -->
+        <div class="col-md-4" style="animation: fadeInRight 2s;">
+            <!-- Donation Section -->
+            <div class="donation-section" style="margin-top: 30px;">
+                <h3 style="color: #34495e;">Donation</h3>
+                <p style="font-size: 18px; color: #666;">Details about how to donate will be added here.</p>
+                <a href="{% url 'donations' %}" class="btn btn-info" style="background-color: #3498db; border: none;">You can support us by donation</a>
+            </div>
+
+            <!-- Daily Bible Verses Section -->
+            <div class="bible-verses-section" style="margin-top: 30px;">
+                <h3 style="color: #34495e;">Daily Bible Verses</h3>
+                <p style="font-size: 18px; color: #666;">Daily Bible verses will be added here.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add CSS for animations and fonts -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+</style>
+{% endblock %}

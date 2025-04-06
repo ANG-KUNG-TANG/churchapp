@@ -1,0 +1,91 @@
+{% extends "spage/layout.html" %}
+
+{% block body %}
+<div class="container mt-5">
+    <h2 class="text-primary text-center mb-4" style="font-family: 'Roboto', sans-serif;">Events</h2>
+    <div class="row">
+        <!-- Event 1 -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h4 class="card-title text-secondary" style="font-family: 'Roboto', sans-serif;">General Events</h4>
+                    <ul class="list-group list-group-flush">
+                        {% for e in Event %}
+                        <li class="list-group-item" style="font-family: 'Roboto', sans-serif;">{{ e }}</li>
+                        {% empty %}
+                        <li class="list-group-item text-muted" style="font-family: 'Roboto', sans-serif;">No events available</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Event 2 -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h4 class="card-title text-secondary" style="font-family: 'Roboto', sans-serif;">Bible Study</h4>
+                    <ul class="list-group list-group-flush">
+                        {% for Bible in Biblestudy %}
+                        <li class="list-group-item" style="font-family: 'Roboto', sans-serif;">{{ Bible }}</li>
+                        {% empty %}
+                        <li class="list-group-item text-muted" style="font-family: 'Roboto', sans-serif;">No events available</li>
+                        {% endfor %}
+                    </ul>
+                    <p class="card-text mt-3" style="font-family: 'Roboto', sans-serif;">Join us for an in-depth study of the Bible. Everyone is welcome!</p>
+                </div>
+            </div>
+        </div>
+        <!-- Event 3 -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h4 class="card-title text-secondary" style="font-family: 'Roboto', sans-serif;">Youth Fellowship</h4>
+                    <ul class="list-group list-group-flush">
+                        {% for y in Youth %}
+                        <li class="list-group-item" style="font-family: 'Roboto', sans-serif;">{{ y }}</li>
+                        {% empty %}
+                        <li class="list-group-item text-muted" style="font-family: 'Roboto', sans-serif;">No events available</li>
+                        {% endfor %}
+                    </ul>
+                    <p class="card-text mt-3" style="font-family: 'Roboto', sans-serif;">A gathering for the youth to connect and grow in faith. All youth are invited!</p>
+                </div>
+            </div>
+        </div>
+        <!-- Event 4 -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h4 class="card-title text-secondary" style="font-family: 'Roboto', sans-serif;">Community Outreach</h4>
+                    <ul class="list-group list-group-flush">
+                        {% for outreach in Outreach %}
+                        <li class="list-group-item" style="font-family: 'Roboto', sans-serif;">{{ outreach }}</li>
+                        {% empty %}
+                        <li class="list-group-item text-muted" style="font-family: 'Roboto', sans-serif;">No events available</li>
+                        {% endfor %}
+                    </ul>
+                    <p class="card-text mt-3" style="font-family: 'Roboto', sans-serif;">Join us as we reach out to our community with love and support. Volunteers needed!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add CSS for animations and font -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.card {
+    animation: fadeIn 1.5s ease-in-out;
+}
+</style>
+{% endblock %}
