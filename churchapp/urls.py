@@ -20,12 +20,13 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.i18n import set_language
-from django.views.generic import TemplateView  # Import TemplateView for rendering static HTML files
+# Import TemplateView for rendering static HTML files
+from django.views.generic import TemplateView
 
 urlpatterns = [
     # path('', TemplateView.as_view(template_name='adindex.html')),  # Render adindex.html using TemplateView
     path('admin/', admin.site.urls),
-    path('cc/', include('cc.urls')),  # Ensure no namespace argument is present
+    path('', include('cc.urls')),  # Ensure no namespace argument is present
 ]
 
 # Serve static and media files during development
