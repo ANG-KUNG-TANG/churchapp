@@ -28,12 +28,12 @@ class UserProfile(models.Model):
         return self.user.username
 
 class Schedule(models.Model):
-    event = models.CharField(max_length=100)
+    title = models.CharField(max_length=100)
     date = models.DateTimeField()
     pastor = models.CharField(max_length=100, default="Unknown Pastor")  # Added default value
     time = models.CharField(max_length=200, default="00:00")  # Added time field
     def __str__(self):
-        return f"Title{self.event}  Date {self.date.strftime('%Y-%m-%d %H:%M:%S')} Time{self.time} Pastor{self.pastor}"
+        return f"Title{self.title}  Date {self.date.strftime('%Y-%m-%d %H:%M:%S')} Time{self.time} Pastor{self.pastor}"
     
 class Roster(models.Model):
     name = models.CharField(max_length=100)

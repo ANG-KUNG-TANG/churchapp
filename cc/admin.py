@@ -26,7 +26,7 @@ class OutreachAdmin(admin.ModelAdmin):
     
 @admin.register(Schedule)
 class ScheduleAdmin(admin.ModelAdmin):
-    list_display = ('event', 'date', 'time')
+    list_display = ('title', 'date', 'time')
                     
 @admin.register(Roster)
 class RosterAdmin(admin.ModelAdmin):
