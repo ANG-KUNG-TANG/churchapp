@@ -141,4 +141,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ALLOWED_HOSTS = ['www.TCC.com', 'TCC.com', '127.0.0.1', 'localhost','yanyanchan.pythonanywhere.com']
+ALLOWED_HOSTS = ['www.TCC.com', 'TCC.com', '127.0.0.1', 'localhost','tccchurch.pythonanywhere.com']
