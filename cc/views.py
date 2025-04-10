@@ -53,7 +53,7 @@ def signup(request):
         # Automatically log in the user after signup
         auth_login(request, user)
         request.session['username'] = username  # Add session
-        return HttpResponseRedirect(reverse('cc:index'))  # Updated namespace
+        return HttpResponseRedirect(reverse('index'))  # Updated namespace
     return render(request, 'fpage/signup.html')
 
 def logout(request):
