@@ -131,6 +131,8 @@ LOCALE_PATHS = [
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 STATIC_URL = 'static/'
 
@@ -139,4 +141,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ALLOWED_HOSTS = ['www.TCC.com', 'TCC.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['www.TCC.com', 'TCC.com', '127.0.0.1', 'localhost','tccchurch.pythonanywhere.com']

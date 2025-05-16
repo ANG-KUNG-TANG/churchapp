@@ -5,106 +5,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taunggyi City Church</title>
-    <link rel="icon" type="image/x-icon" href="{% static 'fpage/favicon.ico' %}">
-    <link rel="stylesheet" href="{% static 'fpage/spage.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'fpage/logoitem1.png' %}" />
+    <link rel="stylesheet" href="{% static 'fpage/style.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <style>
-        /* Additional styles for donation page */
-        body {
-            padding-top: 70px; /* Adjust for fixed navbar */
-        }
-        .navbar-brand i {
-            margin-right: 5px;
-        }
-        .form-control {
-            max-width: 300px;
-            display: inline-block;
-        }
-        footer {
-            background-color: #f8f9fa;
-            border-top: 1px solid #e9ecef;
-        }
-        /* Additional styles for dynamic design */
-        body.light-mode {
-            background-color: #ffffff;
-            color: #000000;
-        }
-        body.dark-mode {
-            background-color: #121212;
-            color: #ffffff;
-        }
-        .theme-toggle {
-            cursor: pointer;
-            margin-left: 10px;
-        }
-    </style>
+    
 </head>
 <body class="light-mode">
+    <!-- Header -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-            <a class="navbar-brand" href="{% url 'home' %}">
-                <i class="fas fa-church"></i> Taunggyi City Church
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home' %}">
-                            <i class="fas fa-home"></i> Home
-                        </a>
-                    </li>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'services' %}">
-                            <i class="fas fa-concierge-bell"></i> Services
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                            {% csrf_token %}
-                            <select name="language" class="form-control" onchange="this.form.submit()">
-                                <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
-                                <option value="my" {% if LANGUAGE_CODE == 'my' %}selected{% endif %}>မြန်မာ</option>
-                            </select>
-                        </form>
-                    </li>
-                    <li class="nav-item">
-                        <span class="theme-toggle" onclick="toggleTheme()">
-                            <i class="fas fa-adjust"></i>
-                        </span>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">
-                            <i class="fas fa-sign-out-alt"></i> Logout
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <i class="fas fa-church"></i> TCC
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">
+                <i class="fas fa-home"></i> Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'services' %}">
+                <i class="fas fa-info-circle"></i> Services
+              </a>
+            </li>            
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="languageDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="fas fa-language"></i> Language
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
+                <a class="dropdown-item" href="?lang=en">English</a>
+                <a class="dropdown-item" href="?lang=my">မြန်မာ</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">
+                <i class="fas fa-user-shield"></i> Logout
+              </a>
+            </li>
+            <li class="nav-item">
+              <span class="dark-mode-toggle" onclick="toggleDarkMode()">
+                <i class="fas fa-moon"></i>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
-    
+
+    <!-- Main Content -->
     <main class="container mt-4">
         {% block body %}
         {% endblock %}
     </main>
-    
+
+    <!-- Footer -->
     <footer class="bg-light text-center py-3 mt-5">
         <p>&copy; 2025 Taunggyi City Church. All rights reserved.</p>
     </footer>
 
+    <!-- Theme Toggle Script -->
     <script>
-        // Theme toggle script
         function toggleTheme() {
             const body = document.body;
-            if (body.classList.contains('light-mode')) {
-                body.classList.remove('light-mode');
-                body.classList.add('dark-mode');
-            } else {
-                body.classList.remove('dark-mode');
-                body.classList.add('light-mode');
-            }
+            body.classList.toggle('light-mode');
+            body.classList.toggle('dark-mode');
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

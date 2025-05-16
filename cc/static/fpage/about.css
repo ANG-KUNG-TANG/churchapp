@@ -1,0 +1,130 @@
+/* General Styles */
+body {
+    font-family: 'Helvetica', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light background */
+    color: #2c3e50; /* Dark text color */
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Title Section */
+h1 {
+    font-size: 2.5rem;
+    color: #3498db; /* Primary color */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+/* Card Styling */
+.card {
+    background-color: #ffffff; /* White background */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px;
+    margin-top: 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Typography */
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #2c3e50; /* Dark text */
+    margin-bottom: 15px;
+}
+
+p.text-primary {
+    color: #3498db; /* Primary color */
+    font-weight: bold;
+}
+
+p.text-success {
+    color: #2ecc71; /* Success color */
+    font-weight: bold;
+}
+
+p.text-muted {
+    color: #6c757d; /* Muted text */
+}
+
+p.text-secondary {
+    color: #5a6268; /* Secondary text */
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: #343a40; /* Dark background */
+    color: #ffffff; /* White text */
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+    margin-top: 30px;
+    border-top: 3px solid #2ecc71; /* Accent border */
+}
+
+footer p {
+    margin: 0;
+}
+
+footer p a {
+    color: #2ecc71; /* Link color */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer p a:hover {
+    color: #ffffff; /* White on hover */
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+}

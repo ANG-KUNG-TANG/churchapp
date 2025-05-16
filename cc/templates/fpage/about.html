@@ -1,30 +1,34 @@
 {% extends "fpage/layout.html" %}
 
 {% block body %}
-<div class="container mt-5">
+<div class="container mt-5 animate__animated animate__fadeIn">
     <div class="text-center mt-3">
-        <h1 class="display-4 text-primary fw-bold animate__animated animate__fadeInDown">Welcome to Taunggyi City Church</h1>
+        <h1 class="text-primary animate__animated animate__fadeInDown animate__slow">
+            Welcome to Taunggyi City Church
+        </h1>
     </div>
-    <div class="card shadow-lg p-4 border-0 rounded-3 bg-light mt-4 animate__animated animate__fadeInUp">
-        <p class="lead">
+    <div class="mt-4 animate__animated animate__fadeInUp animate__slow">
+        <p class="lead text-justify">
             <strong>TCC</strong> သည် 2017 Jan. 1st week, Acts Mission ​ကျောင်း၌ 
             က​လေးသာသနာလုပ်​ငန်းလုပ်ဆောင်ကြ​သောအိမ်​ထောင်မိသားစုများဖြင့် 
             အစပြုခဲ့ကြပါသည်။ ၀တ်ပြုကိုးကွယ်သူ​ပေါင်း <span class="text-primary fw-bold">170-200</span> 
             ကြားရှိသည့်အနက် <span class="text-success fw-bold">3/4</span> မှာ က​လေးများနှင့် လူငယ်များဖြစ်ပြီး
-            တိုင်းရင်းသားလူမျိုးနွယ်စုများနှင့် စု​ပေါင်း ဖွဲ့စည်းထား​သော အသင်း​တော်ဖြစ်ပါသည်။ 
+            တိုင်းရင်းသားလူမျိုးနွယ်စုများနှင့် စု​ပေါင်း ဖွဲ့စည်းထား​သော အသင်း​တော်ဖြစ်ပါသည်။
         </p>
-        <p>
+        <p class="text-center">
             <strong class="text-dark">မည်သူမဆိုလာ​​ရောက် ပါ၀င်နိုင်ပါ​ကြောင်း ​မေတ္တာဖြင့်ဖိတ်​ခေါ်အပ်ပါသည်။</strong>
         </p>
-        <p class="text-end text-muted">ခရစ်​တော်နာမ၌</p>
-        <p class="text-end text-secondary fw-bold">Rev. Mang Vum</p>
-        <p class="text-end text-primary">သင်းအုပ်ဆရာ</p>
+        <div class="text-end">
+            <p class="text-muted mb-0">ခရစ်​တော်နာမ၌</p>
+            <p class="text-secondary fw-bold mb-0">Rev. Mang Vum</p>
+            <p class="text-primary">သင်းအုပ်ဆရာ</p>
+        </div>
     </div>
 </div>
 {% endblock %}
 
 {% block footer %}
 <footer class="bg-dark text-white text-center py-3 mt-5">
-    <p>&copy; 2024 TCC | Designed with ❤️</p>
+    <p class="mb-0">&copy; 2024 TCC | Designed with ❤️</p>
 </footer>
 {% endblock %}

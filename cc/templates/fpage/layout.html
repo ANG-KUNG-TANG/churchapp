@@ -1,22 +1,19 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Taunggyi City Church.</title>
+    <title>Taunggyi City Church</title>
     <link rel="stylesheet" href="{% static 'fpage/style.css' %}" />
-    <link rel="icon" type="image/x-icon" href="{% static 'fpage/cc.ico' %}">
-    <link rel="stylesheet" href="{% static 'fpage/spage.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      rel="stylesheet"
-    />
+    <link rel="icon" type="image/x-icon" href="{% static 'fpage/logoitem1.png' %}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
   </head>
   <body>
+    <!-- Header / Navbar -->
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <a class="navbar-brand" href="{% url 'index' %}">
           <i class="fas fa-church"></i> TCC
         </a>
@@ -58,61 +55,87 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <i class="fas fa-language"></i> Language
+                <i class="fas fa-language"></i> Lan
               </a>
-              <div
-                class="dropdown-menu dropdown-menu-right"
-                aria-labelledby="languageDropdown"
-              >
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
                 <a class="dropdown-item" href="?lang=en">English</a>
                 <a class="dropdown-item" href="?lang=my">မြန်မာ</a>
               </div>
             </li>
-            <!-- Admin link -->
             <li class="nav-item">
               <a class="nav-link" href="{% url 'admin:index' %}">
                 <i class="fas fa-user-shield"></i> Admin
               </a>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <button class="btn btn-outline-secondary btn-sm ml-2" id="darkModeToggle" onclick="toggleDarkMode()" title="Toggle dark mode" style="border-radius: 50%; padding: 6px 10px;">
+              <i class="fas fa-moon"></i>
+              </button>
             </li>
           </ul>
         </div>
       </nav>
     </header>
 
-    <main class="container mt-5 pt-5">{% block body %} {% endblock %}</main>
+      <!-- Main Content -->
+      <main class="container mt-5 pt-5" style="position: relative; z-index: 1;">
+        {% block body %}
+        {% comment %} Page-specific content goes here {% endcomment %}
+        {% endblock %}
+      </main>
 
-    <footer class="footer bg-dark text-white">
-      <div class="footer-content d-flex justify-content-between align-items-center">
-        <!-- All rights reserved text aligned to the left -->
-        <p class="small mb-0 text-left">&copy; 2025 Taunggyi City Church. All rights reserved.</p>
+      <!-- Background Image -->
+      <style>
+        body {
+        background-image: url("{% static 'fpage/church.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        }
+        main.container {
+        border-radius: 2px;
+        background
+        box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+        }
+      </style>
 
-        <!-- Links aligned to the right -->
-        <ul class="list-inline mb-0 text-right">
-          <li class="list-inline-item">
-            <a href="https://twitter.com/yourpage" class="text-white small" target="_blank">
-              <i class="fab fa-twitter"></i> Twitter
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a href="https://www.instagram.com/yourpage" class="text-white small" target="_blank">
-              <i class="fab fa-instagram"></i> Instagram
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a href="https://www.facebook.com/yourpage" class="text-white small" target="_blank">
-              <i class="fab fa-facebook"></i> Facebook
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a href="{% url 'policies' %}" class="text-white small">Privacy Policy</a>
-          </li>
-          <li class="list-inline-item">
-            <a href="{% url 'terms' %}" class="text-white small">Terms & Conditions</a>
-          </li>
-        </ul>
+    <!-- Footer -->
+    <footer class="footer text-center py-3 mt-5">
+      <div class="row w-100 align-items-center">
+        <div class="col-md-6 offset-md-3 mb-2 mb-md-0">
+          <p class="mb-0">&copy; 2025 Taunggyi City Church. All rights reserved.</p>
+        </div>
+        <div class="col-md-3 text-md-right">
+          <a class="mb-0 mr-3" href="{% url 'policies' %}">Policy</a>
+          <a class="mb-0" href="{% url 'terms'%}">Terms</a>
+        </div>
       </div>
     </footer>
+  
 
+    <!-- Footer pop-up banner -->
+    
+
+    <script>
+      // Toggle dark mode
+      function toggleDarkMode() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute("data-theme");
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        html.setAttribute("data-theme", newTheme);
+      }
+
+      // Show the footer pop-up banner after 3 seconds
+      setTimeout(() => {
+        document.getElementById('footerPopup').style.display = 'block';
+      }, 3000);
+
+      // Close the pop-up banner
+      function closePopup() {
+        document.getElementById('footerPopup').style.display = 'none';
+      }
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

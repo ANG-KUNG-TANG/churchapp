@@ -1,0 +1,6 @@
+bin/
+lib/
+*.TAG
+*.cfg
+
+__pycache__/
