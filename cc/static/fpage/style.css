@@ -18,9 +18,25 @@ footer {
     background: transparent;
     border-top: 1px solid var(--secondary-color);
     box-shadow: none;
+    flex-wrap: wrap;
 }
-/* Removed stray text-align: right; */
 
+.footer-left {
+    display: flex;
+    align-items: center;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.footer-social {
+    margin-top: 0.3rem;
+    display: flex;
+    gap: 0.7rem;
+}
 
 footer a {
     color: var(--secondary-color);
