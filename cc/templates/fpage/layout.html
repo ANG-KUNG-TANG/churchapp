@@ -45,68 +45,80 @@
                 <i class="fas fa-envelope"></i> Contact
               </a>
             </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="languageDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <i class="fas fa-language"></i> Lan
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
-                <a class="dropdown-item" href="?lang=en">English</a>
-                <a class="dropdown-item" href="?lang=my">မြန်မာ</a>
-              </div>
-            </li>
-          </ul>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="languageDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i class="fas fa-language"></i> Lan
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
+          <a class="dropdown-item" href="?lang=en">English</a>
+          <a class="dropdown-item" href="?lang=my">မြန်မာ</a>
         </div>
-      </nav>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'admin:index' %}">
+          <i class="fas fa-user-shield"></i> Admin
+        </a>
+      </li>
+      <li class="nav-item d-flex align-items-center">
+        <button class="btn btn-outline-secondary btn-sm ml-2" id="darkModeToggle" onclick="toggleDarkMode()" title="Toggle dark mode" style="border-radius: 50%; padding: 6px 10px;">
+        <i class="fas fa-moon"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
     </header>
 
-    <main class="container mt-5 pt-5">{% block body %} {% endblock %}</main>
+      <!-- Main Content -->
+      <main class="container mt-5 pt-5" style="position: relative; z-index: 1;">
+        {% block body %}
+        {% comment %} Page-specific content goes here {% endcomment %}
+        {% endblock %}
+      </main>
 
-    <footer class="footer bg-dark text-white">
-      <div class="footer-content d-flex justify-content-between align-items-center">
-        <!-- All rights reserved text aligned to the left -->
-        <p class="small mb-0 text-left">&copy; 2025 Taunggyi City Church. All rights reserved.</p>
+      <!-- Background Image -->
+      <style>
+        body {
+        background-image: url("{% static 'fpage/church.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        }
+        main.container {
+        border-radius: 2px;
+        background
+        box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+        }
+      </style>
 
-        <!-- Links aligned to the right -->
-        <ul class="list-inline mb-0 text-right">
-          <li class="list-inline-item">
-            <a href="https://twitter.com/yourpage" class="text-white small" target="_blank">
-              <i class="fab fa-twitter"></i> Twitter
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a href="https://www.instagram.com/yourpage" class="text-white small" target="_blank">
-              <i class="fab fa-instagram"></i> Instagram
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a href="https://www.facebook.com/yourpage" class="text-white small" target="_blank">
-              <i class="fab fa-facebook"></i> Facebook
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a href="{% url 'policies' %}" class="text-white small">Privacy Policy</a>
-          </li>
-          <li class="list-inline-item">
-            <a href="{% url 'terms' %}" class="text-white small">Terms & Conditions</a>
-          </li>
-        </ul>
-      </div>
-    </footer>
-  
-
-    <!-- Footer pop-up banner -->
-    
-
-    <script>
-      // Toggle dark mode
+        main.container {
+        border-radius: 2px;
+        background: white;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+        }
+      </style>
+        </div>
+<!-- Footer -->
+<footer class="footer text-center py-3 mt-5">
+  <div class="row w-100 align-items-center">
+    <div class="col-md-6 offset-md-3 mb-2 mb-md-0">
+      <p class="mb-0">&copy; 2025 Taunggyi City Church. All rights reserved.</p>
+    </div>
+    <div class="col-md-3 text-md-right">
+      <a class="mb-0 mr-3" href="{% url 'policies' %}">Policy</a>
+      <a class="mb-0" href="{% url 'terms'%}">Terms</a>
+    </div>
+  </div>
+</footer>
       function toggleDarkMode() {
         const html = document.documentElement;
         const currentTheme = html.getAttribute("data-theme");
