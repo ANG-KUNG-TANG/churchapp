@@ -114,11 +114,25 @@
       <p class="mb-0">&copy; 2025 Taunggyi City Church. All rights reserved.</p>
     </div>
     <div class="col-md-3 text-md-right">
-      <a class="mb-0 mr-3" href="{% url 'policies' %}">Policy</a>
-      <a class="mb-0" href="{% url 'terms'%}">Terms</a>
+      <div>
+        <a class="mb-0 mr-3" href="{% url 'policies' %}">Policy</a>
+        <a class="mb-0" href="{% url 'terms'%}">Terms</a>
+      </div>
+      <div class="social-links mt-2">
+        <a href="https://facebook.com/share/1B3neCpxC9/" target="_blank" class="text-primary mr-2" title="Facebook">
+          <i class="fab fa-facebook fa-lg"></i>
+        </a>
+        <a href="https://instagram.com/" target="_blank" class="text-danger mr-2" title="Instagram">
+          <i class="fab fa-instagram fa-lg"></i>
+        </a>
+        <a href="https://twitter.com/" target="_blank" class="text-info" title="Twitter">
+          <i class="fab fa-twitter fa-lg"></i>
+        </a>
+      </div>
     </div>
   </div>
 </footer>
+<script>
       function toggleDarkMode() {
         const html = document.documentElement;
         const currentTheme = html.getAttribute("data-theme");
