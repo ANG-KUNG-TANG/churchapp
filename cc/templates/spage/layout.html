@@ -15,7 +15,7 @@
     <!-- Header -->
     <header>
       <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <a class="navbar-brand" href="{% url 'index' %}">
+        <a class="navbar-brand" href="{% url 'home' %}">
           <i class="fas fa-church"></i> TCC
         </a>
         <button
@@ -80,9 +80,41 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-light text-center py-3 mt-5">
-        <p>&copy; 2025 Taunggyi City Church. All rights reserved.</p>
+    <footer id="popup-footer" class="footer text-center py-2 mt-5" style="position:fixed; left:0; right:0; bottom:-100px; z-index:1050; background:#fff; box-shadow:0 -2px 8px rgba(0,0,0,0.08); transition:bottom 0.4s; font-size:0.95rem;">
+      <div class="row w-100 align-items-center">
+      <div class="col-md-6 offset-md-3 mb-1 mb-md-0">
+      <p class="mb-0">&copy; 2025 Taunggyi City Church. All rights reserved.</p>
+      </div>
+      <div class="col-md-3 text-md-right">
+      <div>
+      <a class="mb-0 mr-3" href="{% url 'policies' %}">Policy</a>
+      <a class="mb-0" href="{% url 'terms'%}">Terms</a>
+      </div>
+      <div class="social-links mt-1">
+      <a href="https://facebook.com/share/1B3neCpxC9/" target="_blank" class="text-primary mr-2" title="Facebook">
+        <i class="fab fa-facebook fa-lg"></i>
+      </a>
+      <a href="https://instagram.com/" target="_blank" class="text-danger mr-2" title="Instagram">
+        <i class="fab fa-instagram fa-lg"></i>
+      </a>
+      <a href="https://twitter.com/" target="_blank" class="text-info" title="Twitter">
+        <i class="fab fa-twitter fa-lg"></i>
+      </a>
+      </div>
+      </div>
+      </div>
     </footer>
+    <script>
+      // Show footer only when user reaches bottom
+      window.addEventListener('scroll', function() {
+      const footer = document.getElementById('popup-footer');
+      if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 2)) {
+      footer.style.bottom = '0';
+      } else {
+      footer.style.bottom = '-100px';
+      }
+      });
+    </script>
 
     <!-- Theme Toggle Script -->
     <script>

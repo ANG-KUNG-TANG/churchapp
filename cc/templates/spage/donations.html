@@ -2,14 +2,14 @@
 
 {% block body %}
 <main class="container mt-5 pt-5">
-    <h1 class="text-center display-4 font-weight-bold">Support Our Church</h1>
-    <p class="text-center lead">Your generous donations help us continue our mission and serve our community.</p>
+    <h1 class="text-center font-weight-bold" style="font-size: 24px;">Support Our Church</h1>
+    <p class="text-center lead" style="font-size: 20px;">Your generous donations help us continue our mission and serve our community.</p>
     
-    <div class="row justify-content-center">
+    <div class="row py-3" style="gap: 2rem 0;">
         <!-- Bank Donation Section -->
-        <div class="col-md-6 mb-4">
-            <div class="card shadow-lg border-0">
-                <div class="card-body">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg border-0 h-100">
+                <div class="card-body" style="font-size: 18px;">
                     <h5 class="card-title text-primary font-weight-bold">Bank Donation</h5>
                     <p class="card-text">You can donate directly to our bank account:</p>
                     <ul class="list-unstyled">
@@ -24,9 +24,9 @@
         </div>
 
         <!-- Cash Donation Section -->
-        <div class="col-md-6 mb-4">
-            <div class="card shadow-lg border-0">
-                <div class="card-body">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg border-0 h-100">
+                <div class="card-body" style="font-size: 18px;">
                     <h5 class="card-title text-success font-weight-bold">Cash Donation</h5>
                     <p class="card-text">You can make a cash donation by visiting our church office:</p>
                     <ul class="list-unstyled">
@@ -39,9 +39,9 @@
         </div>
 
         <!-- Online Donation Section -->
-        <div class="col-md-6">
-            <div class="card shadow-lg border-0">
-                <div class="card-body">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg border-0 h-100">
+                <div class="card-body" style="font-size: 18px;">
                     <h5 class="card-title text-info font-weight-bold">Online Donation</h5>
                     <p class="card-text">Fill out the form below to make an online donation:</p>
                     <form action="{% url 'process_donation' %}" method="post">
